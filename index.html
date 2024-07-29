@@ -24,12 +24,15 @@
             height: 100vh;
             overflow: hidden;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            background-image: url('https://example.com/static-background.png');
+            background-size: cover;
         }
 
         .logo {
             font-size: 4rem;
             margin-bottom: 20px;
             animation: glitch 1.5s infinite;
+            text-shadow: 2px 2px 3px rgba(255, 0, 0, 0.6), -2px -2px 3px rgba(0, 0, 255, 0.6);
         }
 
         .discord-button {
@@ -51,29 +54,55 @@
 
         @keyframes glitch {
             0% {
-                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 255, 0.7);
+                text-shadow: 2px 2px 3px rgba(255, 0, 0, 0.6), -2px -2px 3px rgba(0, 0, 255, 0.6);
+                transform: translate(0);
             }
             20% {
-                text-shadow: 2px 2px 5px rgba(0, 0, 255, 0.7), -2px -2px 5px rgba(255, 0, 0, 0.7);
+                text-shadow: 2px 2px 3px rgba(0, 0, 255, 0.6), -2px -2px 3px rgba(255, 0, 0, 0.6);
+                transform: translate(-5px, 5px);
             }
             40% {
-                text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.7), 2px 2px 5px rgba(0, 0, 255, 0.7);
+                text-shadow: -2px -2px 3px rgba(255, 0, 0, 0.6), 2px 2px 3px rgba(0, 0, 255, 0.6);
+                transform: translate(5px, -5px);
             }
             60% {
-                text-shadow: -2px -2px 5px rgba(0, 0, 255, 0.7), 2px 2px 5px rgba(255, 0, 0, 0.7);
+                text-shadow: -2px -2px 3px rgba(0, 0, 255, 0.6), 2px 2px 3px rgba(255, 0, 0, 0.6);
+                transform: translate(-5px, 5px);
             }
             80% {
-                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 255, 0.7);
+                text-shadow: 2px 2px 3px rgba(255, 0, 0, 0.6), -2px -2px 3px rgba(0, 0, 255, 0.6);
+                transform: translate(5px, -5px);
             }
             100% {
-                text-shadow: 2px 2px 5px rgba(0, 0, 255, 0.7), -2px -2px 5px rgba(255, 0, 0, 0.7);
+                text-shadow: 2px 2px 3px rgba(0, 0, 255, 0.6), -2px -2px 3px rgba(255, 0, 0, 0.6);
+                transform: translate(0);
             }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .vhs-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/vhs-overlay.png') repeat;
+            mix-blend-mode: screen;
+            opacity: 0.5;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
     <div class="logo">Proton</div>
     <a href="https://discord.gg/VGqhtctC5b" class="discord-button">Join our Discord</a>
+    <div class="vhs-effect"></div>
 
     <audio id="background-audio" src="https://example.com/eerie-sound.mp3" loop></audio>
 
