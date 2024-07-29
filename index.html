@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proton</title>
+    <style>
+        @font-face {
+            font-family: 'Aquire';
+            src: url('https://static.wixstatic.com/ufonts/aquire-bold.woff2') format('woff2'),
+                 url('https://static.wixstatic.com/ufonts/aquire-bold.woff') format('woff');
+            font-weight: bold;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Aquire', sans-serif;
+            background-color: #000000;
+            color: #FF0000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: glitch 1.5s infinite;
+        }
+
+        .discord-button {
+            font-size: 1.5rem;
+            color: #FF0000;
+            background-color: #000000;
+            border: 2px solid #FF0000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .discord-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 255, 0.7);
+            }
+            20% {
+                text-shadow: 2px 2px 5px rgba(0, 0, 255, 0.7), -2px -2px 5px rgba(255, 0, 0, 0.7);
+            }
+            40% {
+                text-shadow: -2px -2px 5px rgba(255, 0, 0, 0.7), 2px 2px 5px rgba(0, 0, 255, 0.7);
+            }
+            60% {
+                text-shadow: -2px -2px 5px rgba(0, 0, 255, 0.7), 2px 2px 5px rgba(255, 0, 0, 0.7);
+            }
+            80% {
+                text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 255, 0.7);
+            }
+            100% {
+                text-shadow: 2px 2px 5px rgba(0, 0, 255, 0.7), -2px -2px 5px rgba(255, 0, 0, 0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Proton</div>
+    <a href="https://discord.gg/VGqhtctC5b" class="discord-button">Join our Discord</a>
+
+    <audio id="background-audio" src="https://example.com/eerie-sound.mp3" loop></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.querySelector('.discord-button');
+            const audio = document.getElementById('background-audio');
+            audio.play();
+
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'scale(1.1)';
+                button.style.boxShadow = '0 0 10px rgba(255, 0, 0, 0.7)';
+            });
+
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'scale(1)';
+                button.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
